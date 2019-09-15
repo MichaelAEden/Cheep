@@ -27,8 +27,9 @@ export default function ToolBar(props) {
   };
 
   const handleSearch = event => {
+    // TODO: extract search term from event.
     event.preventDefault();
-    // TODO: search.
+    props.onSearch(search);
   };
 
   return (

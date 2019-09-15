@@ -60,6 +60,20 @@ export default function App(props) {
     setIsFetching(false);
   };
 
+  const handleSearch = async search => {
+    setIsFetching(true);
+    const response = await fetch(`/api/grocery/search/${search}`);
+
+    if (response.ok) {
+      try {
+        const json = await response.json();
+        setGroceries(json);
+      } catch (e) {}
+    }
+
+    setIsFetching(false);
+  };
+
   return (
     <ThemeProvider
       theme={{
@@ -123,7 +137,7 @@ export default function App(props) {
           </Grid>
         </Grid>
         <Grid item container style={{ paddingTop: 105 }}>
-          <ToolBar />
+          <ToolBar onSearch={handleSearch} />
         </Grid>
 
         <TabPanel value={value} index={0}>
