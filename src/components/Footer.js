@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+  import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import FolderIcon from '@material-ui/icons/Folder';
 import RestoreIcon from '@material-ui/icons/Home';
 import FavoriteIcon from '@material-ui/icons/AccountCircle';
@@ -48,6 +48,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     backgroundColor: 'theme.palette.background.paper',
+
   },
 }));
 
@@ -57,6 +58,7 @@ export default function LabelBottomNavigation() {
 
   function handleChange(event, newValue) {
     setValue(newValue);
+
   }
 
   return (

@@ -60,6 +60,7 @@ const theme = createMuiTheme({
           padding:0,
         }
       },
+
       MuiButton: {
         text: {
           padding:'0px 0px ',
