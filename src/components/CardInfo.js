@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -23,16 +23,12 @@ const useStyles = makeStyles({
 export default props => {
   const classes = useStyles();
 
-  const { name, image, price } = props;
+  const { image, price } = props;
 
   return (
     <Card className={classes.card}>
       <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image="https://scontent.fyyz1-1.fna.fbcdn.net/v/t1.0-1/c2.0.160.160a/p160x160/32819495_1638426239611949_8467425576209088512_n.jpg?_nc_cat=109&cachebreaker=sd&_nc_oc=AQkPikgleir9CmrQzFZvlfZWEamsSjpvD_Lbc6NIwNKBwrwO28zrwRtE-JoFfKxFTME&_nc_ht=scontent.fyyz1-1.fna&oh=7e7b681e3286bcae01d1b9fef5c49903&oe=5E08A810"
-          title="cardIcon"
-        />
+        <CardMedia className={classes.media} image={image} title="cardIcon" />
         <CardContent>
           <Grid
             container
