@@ -37,7 +37,7 @@ TabPanel.propTypes = {
 
 const baseTheme = createMuiTheme();
 
-export default () => {
+export default function App(props) {
   const [groceries, setGroceries] = useState(null);
   const [isFetching, setIsFetching] = useState(null);
   const [value, setValue] = useState(0);
@@ -157,4 +157,4 @@ export default () => {
       </Grid>
     </ThemeProvider>
   );
-};
+}
