@@ -1,14 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
-  import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import FolderIcon from '@material-ui/icons/Folder';
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import RestoreIcon from '@material-ui/icons/Home';
 import FavoriteIcon from '@material-ui/icons/AccountCircle';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import PropTypes from 'prop-types';
@@ -58,7 +53,6 @@ export default function LabelBottomNavigation() {
 
   function handleChange(event, newValue) {
     setValue(newValue);
-
   }
 
   return (

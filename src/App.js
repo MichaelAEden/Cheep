@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createMuiTheme, makeStyles } from '@material-ui/core/styles';
+import { createMuiTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import ContainedTabs from './components/ContainedTabs';
 import ToolBar from './components/ToolBar'
@@ -10,10 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import GroupInfo from './components/GroupInfo';
 import CardInfo from './components/CardInfo';
 import Footer from './components/Footer';
-import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
-
-
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -38,30 +35,9 @@ TabPanel.propTypes = {
   value: PropTypes.any.isRequired,
 };
 
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  };
-}
-
-
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-    paddingTop:15,
-  },
-}));
-
-
 const baseTheme = createMuiTheme()
 
 function App() {
-  function handleChange(event, newValue) {
-  setValue(newValue);
-}
-  const classes = useStyles();
   const [value, setValue] = useState(0);
   return (
   <ThemeProvider
