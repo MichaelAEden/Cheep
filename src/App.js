@@ -144,7 +144,6 @@ export default () => {
         </TabPanel>
 
         <Grid
-          justify="flex-end"
           style={{
             position: 'fixed',
             bottom: 0,
