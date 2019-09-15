@@ -7,61 +7,60 @@ export default ({ spacing, palette }) => {
   return {
     MuiTab: {
       root: {
-        padding:0,
-      },
+        padding: 0
+      }
     },
     MuiTabs: {
       root: {
-        minHeight:0,
+        minHeight: 0
       },
       fixed: {
-        borderRadius:5,
-        border: '2px solid #22B8BC',
+        borderRadius: 5,
+        border: '2px solid #22B8BC'
       },
       flexContainer: {
-        border: 2,
+        border: 2
       }
     },
     MuiIconButton: {
       root: {
-        padding:0,
+        padding: 0
       }
     },
     MuiCardContent: {
       root: {
-
-        padding:0,
+        padding: 0
       }
     },
     MuiButton: {
       text: {
-        padding:'0px 0px ',
+        padding: '0px 0px '
       },
       root: {
-        padding:'0px 0px ',
-        minWidth:34,
+        padding: '0px 0px ',
+        minWidth: 34
       },
       contained: {
-        boxShadow:'0px 0px 0px 0px rgba(0,0,0,0.0)',
-      },
+        boxShadow: '0px 0px 0px 0px rgba(0,0,0,0.0)'
+      }
     },
     MuiInputBase: {
       root: {
         '&.SearchInput-root': {
           backgroundColor,
           borderRadius,
-          fontSize:13,
+          fontSize: 13,
           height: 28,
           padding: `${space}px ${space * 2}px`,
           '& .material-icons': {
             fontSize: 14,
             color: iconColor,
             '&:first-child': {
-              marginRight: space,
-            },
-          },
-        },
-      },
-    },
+              marginRight: space
+            }
+          }
+        }
+      }
+    }
   };
 };

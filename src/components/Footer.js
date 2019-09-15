@@ -8,7 +8,6 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import PropTypes from 'prop-types';
 
-
 function Footer(props) {
   const { children, value, index, ...other } = props;
 
@@ -29,22 +28,21 @@ function Footer(props) {
 Footer.propTypes = {
   children: PropTypes.node,
   index: PropTypes.any.isRequired,
-  value: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired
 };
 
 function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`
   };
 }
 
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    backgroundColor: 'theme.palette.background.paper',
-
-  },
+    backgroundColor: 'theme.palette.background.paper'
+  }
 }));
 
 export default function LabelBottomNavigation() {
@@ -56,9 +54,23 @@ export default function LabelBottomNavigation() {
   }
 
   return (
-    <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
-      <BottomNavigationAction label="Home" value="recents" icon={<RestoreIcon />} {...a11yProps(0)} />
-      <BottomNavigationAction label="Me" value="favorites" icon={<FavoriteIcon />} {...a11yProps(1)} />
+    <BottomNavigation
+      value={value}
+      onChange={handleChange}
+      className={classes.root}
+    >
+      <BottomNavigationAction
+        label="Home"
+        value="recents"
+        icon={<RestoreIcon />}
+        {...a11yProps(0)}
+      />
+      <BottomNavigationAction
+        label="Me"
+        value="favorites"
+        icon={<FavoriteIcon />}
+        {...a11yProps(1)}
+      />
     </BottomNavigation>
   );
 }

@@ -6,12 +6,10 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Grid from '@material-ui/core/Grid';
 
-
-
 const useTabsStyles = makeStyles(() => ({
   indicator: {
-    display: 'none',
-  },
+    display: 'none'
+  }
 }));
 
 const useTabStyles = makeStyles(({ palette, spacing, breakpoints }) => {
@@ -19,7 +17,7 @@ const useTabStyles = makeStyles(({ palette, spacing, breakpoints }) => {
   const defaultSelectedBgColor = '#22B8BC';
   const defaultMinWidth = {
     md: 150,
-    sm: 100,
+    sm: 100
   };
   const getTextColor = color => {
     if (Color(color).isLight()) return '#22B8BC';
@@ -29,64 +27,61 @@ const useTabStyles = makeStyles(({ palette, spacing, breakpoints }) => {
     root: ({
       bgColor = defaultBgColor,
       minWidth = defaultMinWidth,
-      selectedBgColor = defaultSelectedBgColor,
+      selectedBgColor = defaultSelectedBgColor
     }) => ({
-      minHeight:10,
+      minHeight: 10,
       opacity: 1,
       overflow: 'initial',
       color: getTextColor(bgColor),
       backgroundColor: bgColor,
 
-
       [breakpoints.up('md')]: {
-        minWidth: minWidth.mdprimary,
+        minWidth: minWidth.mdprimary
       },
 
       '&:before': {
-        transition: '0.1s',
+        transition: '0.1s'
       },
       '&:not(:first-of-type)': {
         '&:before': {
           content: '" "',
-          color:'white',
+          color: 'white',
           left: 0,
           display: 'block',
-          width: 1,
-        },
+          width: 1
+        }
       },
       '& + $selected:before': {
-        opacity: 0,
+        opacity: 0
       },
       '&:hover': {
         '&:not($selected)': {
           backgroundColor: Color(selectedBgColor)
             .fade(0.87)
-            .toString(),
+            .toString()
         },
         '&::before': {
-          opacity: 0,
+          opacity: 0
         },
         '& + $root:before': {
-          opacity: 0,
-        },
-      },
+          opacity: 0
+        }
+      }
     }),
     selected: ({ selectedBgColor = defaultSelectedBgColor }) => ({
       backgroundColor: selectedBgColor,
       color: 'white',
-      '& + $root': {
-
-      },
+      '& + $root': {},
       '& + $root:before': {
-        opacity: 0,
-      },
+        opacity: 0
+      }
     }),
     wrapper: {
-      fontSize:14,
-      paddingLeft:15,
-      paddingRight:15,
-      textTransform: 'capitalize',
-    },
+      fontSize: 14,
+      paddingLeft: 15,
+      paddingRight: 15,
+      textTransform: 'capitalize'
+    }
   };
 });
 
@@ -107,19 +102,19 @@ const ContainedTabs = ({ tabs, tabStyle, tabProps, ...props }) => {
 ContainedTabs.propTypes = {
   tabs: PropTypes.arrayOf(
     PropTypes.shape({
-      label: PropTypes.node.isRequired,
-    }),
+      label: PropTypes.node.isRequired
+    })
   ),
   tabStyle: PropTypes.shape({
     bgColor: PropTypes.string,
-    minWidth: PropTypes.shape({}),
+    minWidth: PropTypes.shape({})
   }),
-  tabProps: PropTypes.shape({}),
+  tabProps: PropTypes.shape({})
 };
 ContainedTabs.defaultProps = {
   tabs: [],
   tabStyle: {},
-  tabProps: {},
+  tabProps: {}
 };
 
 export default ContainedTabs;
