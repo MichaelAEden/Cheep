@@ -53,7 +53,7 @@ export default function App(props) {
     if (response.ok) {
       try {
         const json = await response.json();
-        setGroceries(json);
+        setGroceries(json.groceries);
       } catch (e) {}
     }
 
@@ -67,7 +67,7 @@ export default function App(props) {
     if (response.ok) {
       try {
         const json = await response.json();
-        setGroceries(json);
+        setGroceries([json]);
       } catch (e) {}
     }
 
