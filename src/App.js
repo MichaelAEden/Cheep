@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { createMuiTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import ContainedTabs from './components/ContainedTabs';
@@ -11,18 +11,6 @@ import GroupInfo from './components/GroupInfo';
 import CardInfo from './components/CardInfo';
 import Footer from './components/Footer';
 import Box from '@material-ui/core/Box';
-
-const groceries = [
-  {
-    price: 500
-  },
-  {
-    price: 500
-  },
-  {
-    price: 500
-  }
-];
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -50,7 +38,28 @@ TabPanel.propTypes = {
 const baseTheme = createMuiTheme();
 
 export default () => {
+  const [groceries, setGroceries] = useState(null);
+  const [isFetching, setIsFetching] = useState(null);
   const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    if (!groceries && !isFetching) fetchGroceries();
+  });
+
+  const fetchGroceries = async () => {
+    setIsFetching(true);
+    const response = await fetch('/api/grocery');
+
+    if (response.ok) {
+      try {
+        const json = await response.json();
+        setGroceries(json);
+      } catch (e) {}
+    }
+
+    setIsFetching(false);
+  };
+
   return (
     <ThemeProvider
       theme={{
@@ -119,9 +128,10 @@ export default () => {
 
         <TabPanel value={value} index={0}>
           <Grid container justify="space-between" alignItems="flex-start">
-            {groceries.map((grocery, i) => (
-              <CardInfo price={grocery.price} />
-            ))}
+            {groceries &&
+              groceries.map((grocery, i) => (
+                <CardInfo price={grocery.price} image={grocery.image} />
+              ))}
           </Grid>
         </TabPanel>
 
